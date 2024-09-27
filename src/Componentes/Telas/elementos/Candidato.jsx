@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHref } from "react-router-dom";
 
 
 
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export default function Candidato(props) {
     const [curtidas, setCurtidas] = useState(props.candidato.curtidas)
-    const [desCurtidas, setDesCurtidas] = useState(props.candidato.desCurtidas)
+    const [desCurtidas, setDesCurtidas] = useState(props.candidato.desCurtidas || 0)
 
     function addCurtida(){
         const curtidasAtualizadas = curtidas+1;
@@ -17,10 +17,11 @@ export default function Candidato(props) {
     }
     
     function addDescurtida(){
-        const desCurtidasAtualizadas = (desCurtidas || 0) + 1;
+        const desCurtidasAtualizadas = desCurtidas + 1;
         setDesCurtidas(desCurtidasAtualizadas);
         props.candidato.desCurtidas = desCurtidasAtualizadas;
     }
+
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" height="300" width="300" src={props.candidato.avatar} />
