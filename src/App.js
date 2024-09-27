@@ -7,6 +7,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<TelaPrincipal />} />
+                <Route path="/Propostas" element={<TelaPrincipal />} />
             </Routes>
         </BrowserRouter>
     </div>
